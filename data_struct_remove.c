@@ -12,58 +12,33 @@
 
 #include "ds.h"
 
-t_node	*remove_top(t_list *lst)
+void	del_specifc(t_list *lst, char *ref)
 {
 	t_node	*temp;
 	t_node	*aux;
 
-	if (lst->head == lst->tail)
+	temp = lst->head;
+	while (temp != NULL)
 	{
-		if (lst->head == NULL)
-			return (NULL);
-		else
+		if (temp->key == ref)
 		{
-			temp = lst->head;
-			lst->head = NULL;
-			lst->tail = NULL;
+			if (temp == lst->head)
+			{
+				if (temp == lst->tail)
+				{
+					lst->head = NULL;
+					lst->tail = NULL;
+				}
+				else
+					lst->head = temp->next;
+			}
+			temp->prev->next = temp->next;
+			temp->next->prev = temp->prev;
+			aux = temp->next;
+			del_one(temp);
 		}
+		temp = aux;
 	}
-	else
-	{
-		temp = lst->head;
-		aux = temp->next;
-		lst->head = aux;
-		aux->prev = NULL;
-		temp->next = NULL;
-	}
-	return (temp);
-}
-
-t_node	*remove_buttom(t_list *lst)
-{
-	t_node	*temp;
-	t_node	*aux;
-
-	if (lst->head == lst->tail)
-	{
-		if (lst->tail == NULL)
-			return (NULL);
-		else
-		{
-			temp = lst->tail;
-			lst->head = NULL;
-			lst->tail = NULL;
-		}
-	}
-	else
-	{
-		temp = lst->tail;
-		aux = temp->prev;
-		lst->tail = aux;
-		aux->next = NULL;
-		temp->prev = NULL;
-	}
-	return (temp);
 }
 
 void	del_one(t_node *node)

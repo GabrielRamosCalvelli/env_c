@@ -31,9 +31,6 @@ typedef struct s_list{
 t_node	*new_node(char *key, char *value);
 void	empty_list(t_list *lst, t_node *node);
 void	add_buttom(t_list *lst, t_node *node);
-void	add_top(t_list *lst, t_node *node);
-t_node	*remove_top(t_list *lst);
-t_node	*remove_buttom(t_list *lst);
 void	del_one(t_node *node);
 void	del_lst(t_list *lst);
 int		ft_strlen(const char *s);
@@ -44,5 +41,6 @@ int		find_equal(char	*s);
 t_node	*set_node(char *s);
 void	copy_env(t_list *env, char *envp[]);
 void	print_lst(t_list *ref);
+void	del_specifc(t_list *lst, char *ref);
 
 #endif

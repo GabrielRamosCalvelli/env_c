@@ -49,21 +49,3 @@ void	add_buttom(t_list *lst, t_node *node)
 		node->next = NULL;
 	}
 }
-
-void	add_top(t_list *lst, t_node *node)
-{
-	t_node	*first;
-
-	if (node == NULL)
-		return ;
-	if (lst->head == NULL && lst->tail == NULL)
-		empty_list(lst, node);
-	else
-	{
-		first = lst->head;
-		first->prev = node;
-		node->next = first;
-		lst->head = node;
-		node->prev = NULL;
-	}
-}
