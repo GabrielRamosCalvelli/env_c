@@ -20,7 +20,7 @@ void	del_specifc(t_list *lst, char *ref)
 	temp = lst->head;
 	while (temp != NULL)
 	{
-		if (temp->key == ref)
+		if (temp->key == ref) // ESTA LINHA ESTA ERRADA! USE STRCMP!!!
 		{
 			if (temp == lst->head)
 			{

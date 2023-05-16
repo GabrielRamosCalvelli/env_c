@@ -12,6 +12,29 @@
 
 #include "ds.h"
 
+void	menu()
+{
+	ft_putstr("========== MENU ==========\n");
+	ft_putstr("|| 0 - SAIR             ||\n");
+	ft_putstr("|| 1 - CONTINUAR        ||\n");
+	ft_putstr("==========================\n\n");
+}
+
+void	select(t_list *env)
+{
+	int		opitions;
+	char	buffer[30];
+
+	opitions = 1;
+	buffer[29] = '\0';
+	while (opitions != 0)
+	{
+		menu();
+		read(1, buffer, 29);
+		del_specifc(env, buffer);
+	}
+}
+
 int	main(int argc, char *argv[], char *envp[])
 {
 	t_list	env;
